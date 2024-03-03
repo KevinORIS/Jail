@@ -82,6 +82,9 @@ public class MatrixManager {
 		return max;
 	}
 	public static int findRowWithLongestSeries(int[][] matrix) {
+		if (matrix == null || matrix.length == 0) {
+			return -1;
+		}
         int longestSeriesRow = 0;
         int longestSeriesLength = 0;
 
@@ -130,6 +133,9 @@ public class MatrixManager {
         return maxLength > currentLength ? maxLength : currentLength;
     }
 	public static int getLongestSequenceInMatrix(int[][] matrix) {
+		if (matrix == null || matrix.length == 0) {
+			return -1;
+		}
 		int count = 0;
 		for(int i = 0; i < matrix.length; i++){
 			int currentLength = findLongestSequence(matrix[i]);
