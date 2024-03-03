@@ -63,7 +63,7 @@ public class Prison {
             		articleCount.getOrDefault(prisoner.getArticle(), 0) + 1);
         }
 
-        String leastPopularArticle = null;
+        String leastPopularArticle = "";
         int minCount = 0;
 
         for (Map.Entry<String, Integer> entry : articleCount.entrySet()) {
