@@ -2,6 +2,9 @@ package by.itstep.oris.workspace.logic;
 
 public class MatrixManager {
 	public static int getSumBetweenPositives(int[][] matrix) {
+		if(matrix == null || matrix.length == 0) {
+			return -1;
+		}
 		int sum = 0;
 
 		for (int[] row : matrix) {
@@ -25,33 +28,32 @@ public class MatrixManager {
 		return sum;
 	}
 
-	public int[] getColumNumbersWithSequence(int[][] matrix) {
-		int[] columnNumbers = new int[matrix.length];
+	public static String getColumNumbersWithSequence(int[][] matrix) {
+		if(matrix == null || matrix.length == 0) {
+			return "Error";
+		}
+		 StringBuilder builder = new StringBuilder();
 
-        for (int columnIndex = 0; columnIndex < matrix[0].length; columnIndex++) {
-            boolean isAscending = true;
-            boolean isDescending = true;
+		 for (int j = 0; j < matrix[0].length; j++) {
+	            boolean isIncreasing = true;
+	            boolean isDecreasing = true;
 
-            for (int i = 0; i < matrix.length - 1; i++) {
-                if (matrix[i][columnIndex] > matrix[i + 1][columnIndex]) {
-                    isAscending = false;
-                }
-                if (matrix[i][columnIndex] < matrix[i + 1][columnIndex]) {
-                    isDescending = false;
-                }
-            }
+	            for (int i = 1; i < matrix.length; i++) {
+	                if (matrix[i][j] > matrix[i - 1][j]) {
+	                    isDecreasing = false;
+	                } else if (matrix[i][j] < matrix[i - 1][j]) {
+	                    isIncreasing = false;
+	                }
+	                if (!isIncreasing && !isDecreasing) {
+	                    break;
+	                }
+	            }
 
-            if (isAscending) {
-                columnNumbers[columnIndex] = 1;
-            } else if (isDescending) {
-                columnNumbers[columnIndex] = -1;
-            } else {
-                columnNumbers[columnIndex] = 0;
-            }
-        }
+	            if (isIncreasing || isDecreasing) {
+		            builder.append(j + " ");
+		        }
+		    }
 
-        return columnNumbers;
-    }
-
-
+		    return builder.toString();
+	}
 }
