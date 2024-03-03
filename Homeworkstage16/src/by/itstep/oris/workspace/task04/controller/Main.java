@@ -9,8 +9,8 @@ public class Main {
 				{ 1, 3, 1}, 
 				{ 1, 1, 1} };
 
-		int column = MatrixManager.findRowWithLongestSeries(matrix);
+		int row = MatrixManager.findRowWithLongestSeries(matrix);
 
-		System.out.print(column);
+		System.out.print(row);
 	}
 }
