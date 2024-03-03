@@ -56,4 +56,35 @@ public class MatrixManager {
 
 		    return builder.toString();
 	}
+	
+	private static boolean isSequence(int[] row) {
+		boolean increasing = true;
+        boolean decreasing = true;
+
+        for (int i = 1; i < row.length; i++) {
+            if (row[i] > row[i - 1]) {
+                decreasing = false;
+            } else if (row[i] < row[i - 1]) {
+                increasing = false;
+            }
+        }
+
+        return increasing || decreasing;
+	}
+	
+	public static int findMaxInOrderedRows(int[][] matrix) {
+        int maxElement = Integer.MIN_VALUE;
+
+        for (int[] row : matrix) {
+            if (isSequence(row)) {
+                for (int element : row) {
+                    if (element > maxElement) {
+                        maxElement = element;
+                    }
+                }
+            }
+        }
+
+        return maxElement;
+    }
 }
