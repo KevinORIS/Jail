@@ -18,4 +18,20 @@ public class Prison {
 		
 		return longestTerm;
 	}
+	
+	public static double getShortestTerm(Prisoner[] prisoners) {
+		if(prisoners == null || prisoners.length == 0) {
+			return 0;
+		}
+		
+		double shortestTerm = 0;
+		
+		for(Prisoner prisoner : prisoners) {
+			if (shortestTerm < prisoner.getTerm()) {
+				shortestTerm = prisoner.getTerm();
+			}
+		}
+		
+		return shortestTerm;
+	}
 }
