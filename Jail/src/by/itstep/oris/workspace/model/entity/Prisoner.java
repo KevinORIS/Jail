@@ -16,6 +16,10 @@ public class Prisoner {
 		this.article = article;
 		this.term = term;
 	}
+	
+	public Prisoner(Prisoner prisoner) {
+		this(prisoner.name, prisoner.article, prisoner.term);
+	}
 
 	public String getName() {
 		return name;
