@@ -110,4 +110,34 @@ public class MatrixManager {
 
         return longestSeriesRow;
     }
+	private static int findLongestSequence(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
+
+        int maxLength = 1;
+        int currentLength = 1;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > arr[i - 1]) {
+                currentLength++;
+            } else {
+                maxLength = maxLength > currentLength ? maxLength : currentLength;
+                currentLength = 1;
+            }
+        }
+
+        return maxLength > currentLength ? maxLength : currentLength;
+    }
+	public static int getLongestSequenceInMatrix(int[][] matrix) {
+		int count = 0;
+		for(int i = 0; i < matrix.length; i++){
+			int currentLength = findLongestSequence(matrix[i]);
+			if (currentLength > count) {
+				count = currentLength;
+			}
+		}
+		return count;
+	}
+	
 }
