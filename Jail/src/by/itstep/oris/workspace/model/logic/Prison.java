@@ -1,5 +1,8 @@
 package by.itstep.oris.workspace.model.logic;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import by.itstep.oris.workspace.model.entity.Prisoner;
 
 public class Prison {
@@ -51,4 +54,25 @@ public class Prison {
 		return termSum;
 
 	}
+	
+	public static String findLeastPopularArticle(Prisoner[] prisoners) {
+        Map<String, Integer> articleCount = new HashMap<>();
+
+        for (Prisoner prisoner : prisoners) {
+        	articleCount.put(prisoner.getArticle(), 
+            		articleCount.getOrDefault(prisoner.getArticle(), 0) + 1);
+        }
+
+        String leastPopularArticle = null;
+        int minCount = 0;
+
+        for (Map.Entry<String, Integer> entry : articleCount.entrySet()) {
+            if (entry.getValue() < minCount) {
+            	leastPopularArticle = entry.getKey();
+                minCount = entry.getValue();
+            }
+        }
+
+        return leastPopularArticle;
+    }
 }
