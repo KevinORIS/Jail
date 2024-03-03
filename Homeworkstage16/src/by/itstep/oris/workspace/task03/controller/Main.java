@@ -6,10 +6,10 @@ public class Main {
 	public static void main(String[] args) {
 		int[][] matrix = { 
 				{ 0, -5, 3}, 
-				{ 1, -2, 5}, 
-				{ 3, 5, 6} };
+				{ 1, 4, 5}, 
+				{ 3, 10, 6} };
 
-		int max = MatrixManager.findMaxInOrderedRows(matrix);
+		int max = MatrixManager.findMaxFromSequenceColumn(matrix);
 
 		System.out.print(max);
 	}

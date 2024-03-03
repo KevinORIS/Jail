@@ -2,7 +2,7 @@ package by.itstep.oris.workspace.logic;
 
 public class MatrixManager {
 	public static int getSumBetweenPositives(int[][] matrix) {
-		if(matrix == null || matrix.length == 0) {
+		if (matrix == null || matrix.length == 0) {
 			return -1;
 		}
 		int sum = 0;
@@ -29,62 +29,56 @@ public class MatrixManager {
 	}
 
 	public static String getColumNumbersWithSequence(int[][] matrix) {
-		if(matrix == null || matrix.length == 0) {
+		if (matrix == null || matrix.length == 0) {
 			return "Error";
 		}
-		 StringBuilder builder = new StringBuilder();
+		StringBuilder builder = new StringBuilder();
 
-		 for (int j = 0; j < matrix[0].length; j++) {
-	            boolean isIncreasing = true;
-	            boolean isDecreasing = true;
+		for (int j = 0; j < matrix[0].length; j++) {
 
-	            for (int i = 1; i < matrix.length; i++) {
-	                if (matrix[i][j] > matrix[i - 1][j]) {
-	                    isDecreasing = false;
-	                } else if (matrix[i][j] < matrix[i - 1][j]) {
-	                    isIncreasing = false;
-	                }
-	                if (!isIncreasing && !isDecreasing) {
-	                    break;
-	                }
-	            }
+			if (isSequence(matrix, j)) {
+				builder.append(j + " ");
+			}
+		}
 
-	            if (isIncreasing || isDecreasing) {
-		            builder.append(j + " ");
-		        }
-		    }
-
-		    return builder.toString();
+		return builder.toString();
 	}
-	
-	private static boolean isSequence(int[] row) {
-		boolean increasing = true;
-        boolean decreasing = true;
 
-        for (int i = 1; i < row.length; i++) {
-            if (row[i] > row[i - 1]) {
-                decreasing = false;
-            } else if (row[i] < row[i - 1]) {
-                increasing = false;
-            }
-        }
+	private static boolean isSequence(int[][] matrix, int j) {
+		boolean isIncreasing = true;
+		boolean isDecreasing = true;
 
-        return increasing || decreasing;
+		for (int i = 1; i < matrix.length; i++) {
+			if (matrix[i][j] > matrix[i - 1][j]) {
+				isDecreasing = false;
+			} else if (matrix[i][j] < matrix[i - 1][j]) {
+				isIncreasing = false;
+			}
+			if (!isIncreasing && !isDecreasing) {
+				break;
+			}
+		}
+
+		return isIncreasing || isDecreasing;
 	}
-	
-	public static int findMaxInOrderedRows(int[][] matrix) {
-        int maxElement = Integer.MIN_VALUE;
 
-        for (int[] row : matrix) {
-            if (isSequence(row)) {
-                for (int element : row) {
-                    if (element > maxElement) {
-                        maxElement = element;
-                    }
-                }
-            }
-        }
+	public static int findMaxFromSequenceColumn(int[][] matrix) {
+		if (matrix == null || matrix.length == 0) {
+			return -1;
+		}
+		int max = Integer.MIN_VALUE;
 
-        return maxElement;
-    }
+		for (int j = 0; j < matrix[0].length; j++) {
+
+			if (isSequence(matrix, j)) {
+				for (int i = 0; i < matrix.length; i++) {
+					if (matrix[i][j] > max) {
+						max = matrix[i][j];
+					}
+				}
+			}
+		}
+
+		return max;
+	}
 }
