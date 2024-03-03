@@ -3,22 +3,22 @@ package by.itstep.oris.workspace.model.entity;
 public class Prisoner {
 	private String name;
 	private String article;
-	private double term;
+	private int termInDays;
 
 	public Prisoner() {
 		name = "No name";
 		article = "Unknown";
-		term = 0;
+		termInDays = 0;
 	}
 
-	public Prisoner(String name, String article, double term) {
+	public Prisoner(String name, String article, int termInDays) {
 		this.name = name;
 		this.article = article;
-		this.term = term;
+		this.termInDays = termInDays;
 	}
 	
 	public Prisoner(Prisoner prisoner) {
-		this(prisoner.name, prisoner.article, prisoner.term);
+		this(prisoner.name, prisoner.article, prisoner.termInDays);
 	}
 
 	public String getName() {
@@ -37,16 +37,16 @@ public class Prisoner {
 		this.article = article;
 	}
 
-	public double getTerm() {
-		return term;
+	public int getTerm() {
+		return termInDays;
 	}
 
-	public void setTerm(double term) {
-		this.term = term;
+	public void setTerm(int termInDays) {
+		this.termInDays = termInDays;
 	}
 	
 	@Override
 	public String toString() {
-		return name + ":\narticle " + article + "\nterm " + term;
+		return name + ":\narticle " + article + "\nterm in days " + termInDays;
 	}
 }

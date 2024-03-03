@@ -3,12 +3,12 @@ package by.itstep.oris.workspace.model.logic;
 import by.itstep.oris.workspace.model.entity.Prisoner;
 
 public class Prison {
-	public static double getLongestTerm(Prisoner[] prisoners) {
+	public static int getLongestTerm(Prisoner[] prisoners) {
 		if (prisoners == null || prisoners.length == 0) {
 			return 0;
 		}
 
-		double longestTerm = 0;
+		int longestTerm = 0;
 
 		for (Prisoner prisoner : prisoners) {
 			if (longestTerm > prisoner.getTerm()) {
@@ -19,12 +19,12 @@ public class Prison {
 		return longestTerm;
 	}
 
-	public static double getShortestTerm(Prisoner[] prisoners) {
+	public static int getShortestTerm(Prisoner[] prisoners) {
 		if (prisoners == null || prisoners.length == 0) {
 			return 0;
 		}
 
-		double shortestTerm = 0;
+		int shortestTerm = 0;
 
 		for (Prisoner prisoner : prisoners) {
 			if (shortestTerm < prisoner.getTerm()) {
@@ -35,12 +35,12 @@ public class Prison {
 		return shortestTerm;
 	}
 
-	public static double calcTotalTerm(Prisoner[] prisoners) {
+	public static int calcTotalTerm(Prisoner[] prisoners) {
 		if (prisoners == null || prisoners.length == 0) {
 			return 0;
 		}
 
-		double termSum = 0;
+		int termSum = 0;
 
 		for (Prisoner prisoner : prisoners) {
 
