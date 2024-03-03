@@ -81,4 +81,33 @@ public class MatrixManager {
 
 		return max;
 	}
+	public static int findRowWithLongestSeries(int[][] matrix) {
+        int longestSeriesRow = 0;
+        int longestSeriesLength = 0;
+
+        for (int i = 0; i < matrix.length; i++) {
+            int currentSeriesLength = 1;
+            int currentElement = matrix[i][0];
+          
+            for (int j = 1; j < matrix[i].length; j++) {
+                if (matrix[i][j] == currentElement) {
+                    currentSeriesLength++;
+                } else {
+                    if (currentSeriesLength > longestSeriesLength) {
+                        longestSeriesLength = currentSeriesLength;
+                        longestSeriesRow = i;
+                    }
+                    currentElement = matrix[i][j];
+                    currentSeriesLength = 1;
+                }
+            }
+          
+            if (currentSeriesLength > longestSeriesLength) {
+                longestSeriesLength = currentSeriesLength;
+                longestSeriesRow = i;
+            }
+        }
+
+        return longestSeriesRow;
+    }
 }
