@@ -1,4 +1,4 @@
-package by.itstep.oris.workspace.task01.logic;
+package by.itstep.oris.workspace.logic;
 
 public class MatrixManager {
 	public static int getSumBetweenPositives(int[][] matrix) {

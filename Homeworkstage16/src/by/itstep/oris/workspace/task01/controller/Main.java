@@ -1,6 +1,6 @@
 package by.itstep.oris.workspace.task01.controller;
 
-import by.itstep.oris.workspace.task01.logic.MatrixManager;
+import by.itstep.oris.workspace.logic.MatrixManager;
 
 public class Main {
 	public static void main(String[] args) {
