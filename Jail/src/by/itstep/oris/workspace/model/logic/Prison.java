@@ -56,6 +56,9 @@ public class Prison {
 	}
 	
 	public static String findLeastPopularArticle(Prisoner[] prisoners) {
+		if (prisoners == null || prisoners.length == 0) {
+			return "Error";
+		}
         Map<String, Integer> articleCount = new HashMap<>();
 
         for (Prisoner prisoner : prisoners) {
