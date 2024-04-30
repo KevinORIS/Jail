@@ -65,7 +65,7 @@ public class Prison {
         }
 
         String leastPopularArticle = "";
-        int minCount = 0;
+        int minCount = Integer.MAX_VALUE;
 
         for (Map.Entry<String, Integer> entry : articleCount.entrySet()) {
             if (entry.getValue() < minCount) {
