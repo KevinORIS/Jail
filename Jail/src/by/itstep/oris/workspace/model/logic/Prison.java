@@ -25,10 +25,10 @@ public class Prison {
 			return 0;
 		}
 
-		int shortestTerm = 0;
+		int shortestTerm = Integer.MAX_VALUE;
 
 		for (Prisoner prisoner : prisoners) {
-			if (shortestTerm < prisoner.getTerm()) {
+			if (shortestTerm > prisoner.getTerm()) {
 				shortestTerm = prisoner.getTerm();
 			}
 		}
