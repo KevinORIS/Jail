@@ -29,4 +29,15 @@ public class PrisonTest {
 		
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testCalcTotalTerm() {
+		Prisoner[] prisoners = {new Prisoner("Bob", "Petty theft", 3),
+				new Prisoner("Jack", "Public masturbation", 10),
+				new Prisoner("Andy", "Armed attack", 23)};
+		int expected = 36;
+		int actual = Prison.calcTotalTerm(prisoners);
+		
+		assertEquals(expected, actual);
+	}
 }
