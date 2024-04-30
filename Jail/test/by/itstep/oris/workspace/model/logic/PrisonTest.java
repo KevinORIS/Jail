@@ -40,4 +40,19 @@ public class PrisonTest {
 		
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testFindLeastPopularArticle() {
+		Prisoner[] prisoners = {new Prisoner("Bob", "Petty theft", 3),
+				new Prisoner("Pop", "Petty theft", 1),
+				new Prisoner("Andy", "Armed attack", 23),
+				new Prisoner("Anna", "Armed attack", 13),
+				new Prisoner("Willy Wonka", "Made tasteless chocolate", 1)};
+		
+		String expected = "Made tasteless chocolate";
+		
+		String actual = Prison.findLeastPopularArticle(prisoners);
+		
+		assertEquals(expected, actual);
+	}
 }
