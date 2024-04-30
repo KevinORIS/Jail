@@ -12,13 +12,11 @@ public class Prison {
 		}
 
 		int longestTerm = 0;
-		System.out.println(prisoners[0].getTerm());
 		for (Prisoner prisoner : prisoners) {
 			if (longestTerm < prisoner.getTerm()) {
 				longestTerm = prisoner.getTerm();
 			}
 		}
-		System.out.println(longestTerm);
 		return longestTerm;
 	}
 
