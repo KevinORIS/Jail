@@ -103,6 +103,13 @@ public class Prisoner extends Human {
 		return termInDays;
 	}
 	
+	@Override
+	public String toString() {
+		return "Prisoner " + super.toString() 
+		 + "\njailed for " + currentArticle
+		 + "\non term " + termInDays + " days.";
+	}
+	
 	private enum Article {
 		UNKNOWN, THEFT, FRAUD, VIOLENCE, DRUGS, PUBLICMASTURBATION
 	}
