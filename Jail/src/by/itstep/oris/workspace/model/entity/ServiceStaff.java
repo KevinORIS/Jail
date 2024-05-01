@@ -23,6 +23,14 @@ public class ServiceStaff extends Human {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+	
+	public double getServiceSpeed() {
+		return serviceSpeed;
+	}
+	
+	public void setServiceSpeed(double serviceSpeed) {
+		this.serviceSpeed = serviceSpeed;
+	}
 
 	@Override
 	public String toString() {
