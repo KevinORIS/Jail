@@ -12,6 +12,7 @@ public class Prisoner extends Human {
 
 	{	
 		riotousness = 0;
+		termInDays = 0;
 		serviceNeed = 1;
 		maintenancePayment = 100;
 		this.pastArticles = new ArrayList<Article>();
@@ -20,15 +21,11 @@ public class Prisoner extends Human {
 	public Prisoner() {
 		super();
 		currentArticle = Article.UNKNOWN;
-		termInDays = 0;
-		riotousness = 0;
 	}
 
 	public Prisoner(String name) {
 		super(name);
 		currentArticle = Article.UNKNOWN;
-		termInDays = 0;
-		riotousness = 0;
 	}
 
 	public void jailForTheft() {
