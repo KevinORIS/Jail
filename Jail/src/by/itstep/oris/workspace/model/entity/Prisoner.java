@@ -1,52 +1,112 @@
 package by.itstep.oris.workspace.model.entity;
 
-public class Prisoner {
-	private String name;
-	private String article;
-	private int termInDays;
+import java.util.ArrayList;
+
+public class Prisoner extends Human {
+	private double termInDays;
+	private double serviceNeed;
+	private double riotousness;
+	private double maintenancePayment;
+	private Article currentArticle;
+	private ArrayList<Article> pastArticles;
+
+	{	
+		riotousness = 0;
+		serviceNeed = 1;
+		maintenancePayment = 100;
+		this.pastArticles = new ArrayList<Article>();
+	}
 
 	public Prisoner() {
-		name = "No name";
-		article = "Unknown";
+		super();
+		currentArticle = Article.UNKNOWN;
 		termInDays = 0;
+		riotousness = 0;
 	}
 
-	public Prisoner(String name, String article, int termInDays) {
-		this.name = name;
-		this.article = article;
-		this.termInDays = termInDays;
+	public Prisoner(String name) {
+		super(name);
+		currentArticle = Article.UNKNOWN;
+		termInDays = 0;
+		riotousness = 0;
+	}
+
+	public void jailForTheft() {
+		if (currentArticle != Article.UNKNOWN) {
+			pastArticles.add(currentArticle);
+		}
+		termInDays += 3;
+		riotousness = 1;
+
+		currentArticle = Article.THEFT;
+	}
+
+	public void jailForFraud() {
+		if (currentArticle != Article.UNKNOWN) {
+			pastArticles.add(currentArticle);
+		}
+		termInDays += 2;
+		riotousness = 1;
+
+		currentArticle = Article.FRAUD;
+	}
+
+	public void jailForViolence() {
+		if (currentArticle != Article.UNKNOWN) {
+			pastArticles.add(currentArticle);
+		}
+		termInDays += 10;
+		riotousness = 4;
+		maintenancePayment = 200;
+
+		currentArticle = Article.VIOLENCE;
+	}
+
+	public void jailForDrugs() {
+		if (currentArticle != Article.UNKNOWN) {
+			pastArticles.add(currentArticle);
+		}
+		termInDays += 8;
+		riotousness = 3;
+		maintenancePayment = 150;
+
+		currentArticle = Article.DRUGS;
 	}
 	
-	public Prisoner(Prisoner prisoner) {
-		this(prisoner.name, prisoner.article, prisoner.termInDays);
+	public void jailForPublicMasturbration() {
+		if (currentArticle != Article.UNKNOWN) {
+			pastArticles.add(currentArticle);
+		}
+		termInDays += 4;
+		
+		currentArticle = Article.PUBLICMASTURBATION;
 	}
-
-	public String getName() {
-		return name;
+	
+	public Article getCurrentArticle() {
+		return currentArticle;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	
+	public ArrayList<Article> getPastArticles() {
+		return pastArticles;
 	}
-
-	public String getArticle() {
-		return article;
+	
+	public double getMaintenancePayment() {
+		return maintenancePayment;
 	}
-
-	public void setArticle(String article) {
-		this.article = article;
+	
+	public double getRiotousness() {
+		return riotousness;
 	}
-
-	public int getTerm() {
+	
+	public double getServiceNeed() {
+		return serviceNeed;
+	}
+	
+	public double getTermInDays() {
 		return termInDays;
 	}
-
-	public void setTerm(int termInDays) {
-		this.termInDays = termInDays;
-	}
 	
-	@Override
-	public String toString() {
-		return name + ":\narticle " + article + "\nterm in days " + termInDays;
+	private enum Article {
+		UNKNOWN, THEFT, FRAUD, VIOLENCE, DRUGS, PUBLICMASTURBATION
 	}
 }
