@@ -107,7 +107,7 @@ public class Prisoner extends Human {
 	public String toString() {
 		return "Prisoner " + super.toString() 
 		 + "\njailed for " + currentArticle
-		 + "\non term " + termInYears + " years.";
+		 + "\nfor term of " + termInYears + " years.";
 	}
 	
 	private enum Article {
