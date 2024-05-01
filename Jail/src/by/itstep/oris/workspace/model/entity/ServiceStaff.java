@@ -10,9 +10,10 @@ public class ServiceStaff extends Human {
 		serviceSpeed = 1;
 	}
 
-	public ServiceStaff(String name, double salary) {
+	public ServiceStaff(String name, double salary, double serviceSpeed) {
 		super(name);
 		this.salary = salary;
+		this.serviceSpeed = serviceSpeed;
 	}
 
 	public double getSalary() {
