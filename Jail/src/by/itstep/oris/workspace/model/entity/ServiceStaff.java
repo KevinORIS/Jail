@@ -7,7 +7,7 @@ public class ServiceStaff extends Human {
 	public ServiceStaff() {
 		super();
 		salary = 100;
-		serviceSpeed = 1;
+		serviceSpeed = 10;
 	}
 
 	public ServiceStaff(String name, double salary, double serviceSpeed) {
