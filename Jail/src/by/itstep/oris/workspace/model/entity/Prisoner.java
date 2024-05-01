@@ -3,7 +3,7 @@ package by.itstep.oris.workspace.model.entity;
 import java.util.ArrayList;
 
 public class Prisoner extends Human {
-	private double termInDays;
+	private int termInYears;
 	private double serviceNeed;
 	private double riotousness;
 	private double maintenancePayment;
@@ -12,7 +12,7 @@ public class Prisoner extends Human {
 
 	{	
 		riotousness = 0;
-		termInDays = 0;
+		termInYears = 0;
 		serviceNeed = 1;
 		maintenancePayment = 100;
 		this.pastArticles = new ArrayList<Article>();
@@ -32,7 +32,7 @@ public class Prisoner extends Human {
 		if (currentArticle != Article.UNKNOWN) {
 			pastArticles.add(currentArticle);
 		}
-		termInDays += 3;
+		termInYears += 3;
 		riotousness = 1;
 
 		currentArticle = Article.THEFT;
@@ -42,7 +42,7 @@ public class Prisoner extends Human {
 		if (currentArticle != Article.UNKNOWN) {
 			pastArticles.add(currentArticle);
 		}
-		termInDays += 2;
+		termInYears += 2;
 		riotousness = 1;
 
 		currentArticle = Article.FRAUD;
@@ -52,7 +52,7 @@ public class Prisoner extends Human {
 		if (currentArticle != Article.UNKNOWN) {
 			pastArticles.add(currentArticle);
 		}
-		termInDays += 10;
+		termInYears += 10;
 		riotousness = 4;
 		maintenancePayment = 200;
 
@@ -63,7 +63,7 @@ public class Prisoner extends Human {
 		if (currentArticle != Article.UNKNOWN) {
 			pastArticles.add(currentArticle);
 		}
-		termInDays += 8;
+		termInYears += 8;
 		riotousness = 3;
 		maintenancePayment = 150;
 
@@ -74,7 +74,7 @@ public class Prisoner extends Human {
 		if (currentArticle != Article.UNKNOWN) {
 			pastArticles.add(currentArticle);
 		}
-		termInDays += 4;
+		termInYears += 4;
 		
 		currentArticle = Article.PUBLICMASTURBATION;
 	}
@@ -99,15 +99,15 @@ public class Prisoner extends Human {
 		return serviceNeed;
 	}
 	
-	public double getTermInDays() {
-		return termInDays;
+	public int getTermInDays() {
+		return termInYears;
 	}
 	
 	@Override
 	public String toString() {
 		return "Prisoner " + super.toString() 
 		 + "\njailed for " + currentArticle
-		 + "\non term " + termInDays + " days.";
+		 + "\non term " + termInYears + " days.";
 	}
 	
 	private enum Article {
